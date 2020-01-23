@@ -1,0 +1,95 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion rootProject.compileSdkVersionExt
+    defaultConfig {
+
+        applicationId "com.example.rafaelanastacioalves"
+        buildToolsVersion rootProject.buildToolsVersionExt
+        minSdkVersion rootProject.minSdkVersionExt
+        targetSdkVersion rootProject.targetSdkVersionExt
+        versionCode 11
+        versionName "0.1.1"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    testBuildType "instrumentation"
+    buildTypes {
+
+        buildTypes.each {
+            it.buildConfigField "String", "API_BASE_URL", '"https://api.chucknorris.io"'
+            it.buildConfigField "boolean", "IS_TEST", 'false'
+
+        }
+        debug {
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        instrumentation {
+            initWith(buildTypes.debug)
+            testCoverageEnabled = true
+            buildConfigField "String", "API_BASE_URL", '"http://localhost:1234"'
+            buildConfigField "boolean", "IS_TEST", 'true'
+
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:$rootProject.espressoExt", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestImplementation "com.android.support.test:runner:$rootProject.testRunnerExt"
+    androidTestImplementation "com.android.support.test.espresso:espresso-intents:$rootProject.espressoExt"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:$rootProject.espressoExt"
+
+
+    implementation "com.android.support:support-annotations:$rootProject.androidSupportLibrariesExt"
+    implementation "com.android.support:recyclerview-v7:$rootProject.androidSupportLibrariesExt"
+    implementation "com.android.support:design:$rootProject.androidSupportLibrariesExt"
+    implementation "com.android.support:appcompat-v7:$rootProject.androidSupportLibrariesExt"
+    implementation "com.android.support:support-v4:$rootProject.androidSupportLibrariesExt"
+    implementation "com.squareup.okhttp3:mockwebserver:$rootProject.mockWebServerExt"
+
+    //retrofit + gson
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitExt"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitExt"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp3Ext"
+
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.androidConstraintLayout"
+    implementation "com.jakewharton:butterknife:$rootProject.jakewhartonStuff"
+    implementation "com.squareup.picasso:picasso:$rootProject.picassoExt"
+    implementation "com.jakewharton.timber:timber:$rootProject.timberExt"
+    kapt "com.jakewharton:butterknife-compiler:$rootProject.jakewhartonStuff"
+
+    // architecture components
+
+    implementation 'android.arch.lifecycle:extensions:' + rootProject.archLifecycleVersion
+    annotationProcessor 'android.arch.lifecycle:compiler:' + rootProject.archLifecycleVersion
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+
+    // Dagger 2
+    implementation "com.google.dagger:dagger:$dagger2_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger2_version"
+    compileOnly "org.glassfish:javax.annotation:3.1.1"
+
+    // rx android
+
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxAndroidVersion"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxJavaVersion"
+
+
+}
+repositories {
+    mavenCentral()
+}
