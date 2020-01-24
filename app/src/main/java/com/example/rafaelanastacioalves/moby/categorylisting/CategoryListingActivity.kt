@@ -14,11 +14,10 @@ import com.example.rafaelanastacioalves.moby.jokeshowing.JokeShowingFragment
 import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener
 
 class CategoryListingActivity : AppCompatActivity(), RecyclerViewClickListener {
-    private val mClickListener = this
-    private var mTripPackageListAdapter: CategoryAdapter? = null
-    private val tripPackageListLoaderId = 10
-    private var mRecyclerView: RecyclerView? = null
-    lateinit private var mCategoryListingViewModel: CategoryListingViewModel
+    private val clickListener = this
+    private var categoryListingAdapter: CategoryAdapter? = null
+    private var recyclerView: RecyclerView? = null
+    lateinit private var categoryListingViewModel: CategoryListingViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +28,8 @@ class CategoryListingActivity : AppCompatActivity(), RecyclerViewClickListener {
     }
 
     private fun subscribe() {
-        mCategoryListingViewModel = ViewModelProviders.of(this).get(CategoryListingViewModel::class.java!!)
-        mCategoryListingViewModel.mainEntityList.observe(this, Observer { mainEntities ->
+        categoryListingViewModel = ViewModelProviders.of(this).get(CategoryListingViewModel::class.java!!)
+        categoryListingViewModel.mainEntityList.observe(this, Observer { mainEntities ->
             populateRecyclerView(mainEntities)
         })
     }
@@ -40,31 +39,31 @@ class CategoryListingActivity : AppCompatActivity(), RecyclerViewClickListener {
     }
 
     private fun setupRecyclerView() {
-        mRecyclerView = findViewById<View>(R.id.trip_package_list) as RecyclerView
+        recyclerView = findViewById<View>(R.id.trip_package_list) as RecyclerView
         val layoutManager = LinearLayoutManager(applicationContext)
-        mRecyclerView!!.layoutManager = layoutManager
-        if (mTripPackageListAdapter == null) {
-            mTripPackageListAdapter = CategoryAdapter(this)
+        recyclerView!!.layoutManager = layoutManager
+        if (categoryListingAdapter == null) {
+            categoryListingAdapter = CategoryAdapter(this)
         }
-        mTripPackageListAdapter!!.setRecyclerViewClickListener(mClickListener)
-        mRecyclerView!!.adapter = mTripPackageListAdapter
+        categoryListingAdapter!!.setRecyclerViewClickListener(clickListener)
+        recyclerView!!.adapter = categoryListingAdapter
     }
 
 
     private fun populateRecyclerView(data: List<String>?) {
         if (data == null) {
-            mTripPackageListAdapter!!.setItems(null)
+            categoryListingAdapter!!.setItems(null)
             //TODO add any error managing
 
         } else {
-            mTripPackageListAdapter!!.setItems(data)
+            categoryListingAdapter!!.setItems(data)
         }
 
     }
 
 
     override fun onClick(view: View, position: Int) {
-        val category = mTripPackageListAdapter!!.getItems()!!.get(position)
+        val category = categoryListingAdapter!!.getItems()!!.get(position)
         redirectToJoke(category)
     }
 

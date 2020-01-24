@@ -3,6 +3,8 @@ package com.example.rafaelanastacioalves.moby.jokeshowing
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
@@ -12,25 +14,18 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-
+import butterknife.BindView
+import butterknife.ButterKnife
 import com.example.rafaelanastacioalves.moby.R
 import com.example.rafaelanastacioalves.moby.domain.model.Joke
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-
-import butterknife.BindView
-import butterknife.ButterKnife
+import kotlinx.android.synthetic.main.fragment_detail_entity_detail_view.*
 
 
 class JokeShowingFragment : Fragment(), View.OnClickListener {
 
-    lateinit private var mJokeShowingViewModel: JokeShowingViewModel
-
-    @BindView(R.id.joke_value_textview)
-    lateinit internal var tripPackageDetailValor: TextView
-
-    @BindView(R.id.joke_image_imageview)
-    lateinit internal var tripPackageDetailImageview: ImageView
+    lateinit private var jokeShowingViewModel: JokeShowingViewModel
 
     lateinit var categoryName: String
 
@@ -45,12 +40,12 @@ class JokeShowingFragment : Fragment(), View.OnClickListener {
 
     private fun loadData() {
         categoryName = arguments!!.getString(ARG_JOKE_CATEGORY)
-        mJokeShowingViewModel.loadData(categoryName)
+        jokeShowingViewModel.loadData(categoryName)
     }
 
     private fun subscribe() {
-        mJokeShowingViewModel = ViewModelProviders.of(this).get(JokeShowingViewModel::class.java)
-        mJokeShowingViewModel.jokeDetails.observe(this, Observer { entityDetails -> setViewsWith(entityDetails!!) })
+        jokeShowingViewModel = ViewModelProviders.of(this).get(JokeShowingViewModel::class.java)
+        jokeShowingViewModel.jokeDetails.observe(this, Observer { entityDetails -> setViewsWith(entityDetails!!) })
 
     }
 
@@ -79,10 +74,10 @@ class JokeShowingFragment : Fragment(), View.OnClickListener {
 
     private fun setViewsWith(joke: Joke) {
 
-        tripPackageDetailValor!!.text = joke.value
+        joke_value_textview!!.text = joke.value
         Picasso.get()
                 .load(joke.iconUrl)
-                .into(tripPackageDetailImageview, object : Callback {
+                .into(joke_image_imageview, object : Callback {
                     override fun onSuccess() {
                         activity!!.supportStartPostponedEnterTransition()
                     }
@@ -91,6 +86,16 @@ class JokeShowingFragment : Fragment(), View.OnClickListener {
 
                     }
                 })
+
+        joke_link_textview.text = joke.url
+        joke_link_textview.setOnClickListener({ v -> openLink(joke.url) })
+    }
+
+    private fun openLink(url: String) {
+        val uri: Uri = Uri.parse(url) // missing 'http://' will cause crashed
+
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        startActivity(intent)
     }
 
 
