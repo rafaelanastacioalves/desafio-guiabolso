@@ -36,7 +36,7 @@ class CategoryListingActivityTest {
 
     @get:Rule
     var mainActivityActivityTestRule = ActivityTestRule(CategoryListingActivity::class.java, true, false)
-    private val fileNameTripPackagesOKResponse = "single_joke_ok_response.json"
+    private val fileNameJokeOKResponse = "single_joke_ok_response.json"
     private var server: MockWebServer? = null
 
     @Before
@@ -56,7 +56,7 @@ class CategoryListingActivityTest {
         server!!.enqueue(MockResponse()
                 .setResponseCode(200)
                 .setBody(RestServiceTestHelper.getStringFromFile(
-                        InstrumentationRegistry.getInstrumentation().context, fileNameTripPackagesOKResponse)
+                        InstrumentationRegistry.getInstrumentation().context, fileNameJokeOKResponse)
                 )
         )
 
@@ -65,7 +65,7 @@ class CategoryListingActivityTest {
         mainActivityActivityTestRule.launchActivity(intent)
 
         onView(
-                withId(R.id.trip_package_list)
+                withId(R.id.joke_category_list)
         ).perform(
                 RecyclerViewActions.scrollToHolder(
                         withHolderContainingId(R.id.joke_category_title_textview)

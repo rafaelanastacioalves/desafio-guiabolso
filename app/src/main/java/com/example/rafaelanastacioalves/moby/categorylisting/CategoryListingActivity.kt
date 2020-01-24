@@ -39,7 +39,7 @@ class CategoryListingActivity : AppCompatActivity(), RecyclerViewClickListener {
     }
 
     private fun setupRecyclerView() {
-        recyclerView = findViewById<View>(R.id.trip_package_list) as RecyclerView
+        recyclerView = findViewById<View>(R.id.joke_category_list) as RecyclerView
         val layoutManager = LinearLayoutManager(applicationContext)
         recyclerView!!.layoutManager = layoutManager
         if (categoryListingAdapter == null) {

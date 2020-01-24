@@ -1,7 +1,7 @@
 <resources>
 	<string name="app_name">Desafio Guia Bolso</string>
 	<string name="valor_text">A Joke</string>
-	<string name="trip_package_imageview_transition_name">trip_package_imageview_transition</string>
+	<string name="joke_imageview_transition_name">joke_imageview_transition</string>
 
 	<!-- TODO: Remove or change this placeholder text -->
 	<string name="detail_entitiy_title_textview">Text</string>

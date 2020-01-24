@@ -8,7 +8,7 @@
 	tools:context="com.example.rafaelanastacioalves.moby.categorylisting.CategoryListingActivity">
 
 	<android.support.v7.widget.RecyclerView
-		android:id="@+id/trip_package_list"
+		android:id="@+id/joke_category_list"
 		android:layout_width="0dp"
 		android:layout_height="0dp"
 		app:layout_constraintBottom_toBottomOf="parent"
