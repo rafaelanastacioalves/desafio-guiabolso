@@ -34,8 +34,8 @@ import org.hamcrest.CoreMatchers.containsString
 @RunWith(AndroidJUnit4::class)
 class CategoryDetailActivityTest {
     @get:Rule
-    var tripPackageDetailActivityTestRule = ActivityTestRule(JokeShowingActivity::class.java, true, false)
-    private val fileNameTripPackageDetailOKResponse = "random_joke_detail_ok_response.json"
+    var jokeActivityTestRule = ActivityTestRule(JokeShowingActivity::class.java, true, false)
+    private val randomJokeOKResponse = "random_joke_detail_ok_response.json"
     private var server: MockWebServer? = null
     private val MOCK_JOKE_NAME = "animal"
 
@@ -55,13 +55,13 @@ class CategoryDetailActivityTest {
         server!!.enqueue(MockResponse()
                 .setResponseCode(200)
                 .setBody(RestServiceTestHelper.getStringFromFile(
-                        InstrumentationRegistry.getInstrumentation().context, fileNameTripPackageDetailOKResponse)
+                        InstrumentationRegistry.getInstrumentation().context, randomJokeOKResponse)
                 )
         )
 
         val intent = Intent()
         intent.putExtra(JokeShowingFragment.ARG_JOKE_CATEGORY, MOCK_JOKE_NAME)
-        tripPackageDetailActivityTestRule.launchActivity(intent)
+        jokeActivityTestRule.launchActivity(intent)
 
 
 

@@ -28,7 +28,7 @@ class CategoryAdapter(context: Context) : RecyclerView.Adapter<CategoryViewHolde
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder  {
         return CategoryViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.detail_entity_viewholder, parent, false), recyclerViewClickListener);
+                .inflate(R.layout.joke_category_viewholder, parent, false), recyclerViewClickListener);
     }
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int ) {

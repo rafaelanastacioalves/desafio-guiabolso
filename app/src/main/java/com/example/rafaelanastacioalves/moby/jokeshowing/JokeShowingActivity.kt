@@ -11,7 +11,7 @@ class JokeShowingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_package_detail)
+        setContentView(R.layout.joke_detail)
         setupActionBar()
 
 

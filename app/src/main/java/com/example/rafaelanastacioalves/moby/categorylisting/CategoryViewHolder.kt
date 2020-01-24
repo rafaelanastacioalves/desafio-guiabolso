@@ -11,19 +11,19 @@ import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener
 
 class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
-    @BindView(R.id.trip_package_container)
-    lateinit var tripPackageContainer: View
+    @BindView(R.id.joke_category_container)
+    lateinit var jokeCategoryContainer: View
     lateinit private var aRecyclerViewListener: RecyclerViewClickListener
 
     @BindView(R.id.joke_category_title_textview)
-    lateinit var tripPackageTitleTextView: TextView;
+    lateinit var jokeCategoryTitleTextView: TextView;
 
     constructor(itemView: View , clickListener: RecyclerViewClickListener) : this(itemView) {
         this.aRecyclerViewListener = clickListener
     }
     init {
         ButterKnife.bind(this, itemView)
-        tripPackageContainer.setOnClickListener(this)
+        jokeCategoryContainer.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -32,7 +32,7 @@ class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), Vi
 
     fun bind(aCategory: String, context: Context) {
 
-        tripPackageTitleTextView.setText(aCategory);
+        jokeCategoryTitleTextView.setText(aCategory);
 
 
 

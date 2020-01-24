@@ -17,7 +17,7 @@ import com.example.rafaelanastacioalves.moby.R
 import com.example.rafaelanastacioalves.moby.domain.model.Joke
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_detail_entity_detail_view.*
+import kotlinx.android.synthetic.main.fragment_joke_detail_view.*
 
 
 class JokeShowingFragment : Fragment(), View.OnClickListener {
@@ -54,7 +54,7 @@ class JokeShowingFragment : Fragment(), View.OnClickListener {
 
 
     private fun inflateViews(inflater: LayoutInflater, container: ViewGroup?): View {
-        val rootView = inflater.inflate(R.layout.fragment_detail_entity_detail_view, container, false)
+        val rootView = inflater.inflate(R.layout.fragment_joke_detail_view, container, false)
         ButterKnife.bind(this, rootView)
         return rootView
     }
