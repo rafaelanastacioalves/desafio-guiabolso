@@ -28,15 +28,16 @@ import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.espresso.matcher.ViewMatchers.withText
 import android.view.View
 import org.hamcrest.CoreMatchers.allOf
+import org.hamcrest.CoreMatchers.containsString
 
 
 @RunWith(AndroidJUnit4::class)
 class CategoryDetailActivityTest {
     @get:Rule
     var tripPackageDetailActivityTestRule = ActivityTestRule(JokeShowingActivity::class.java, true, false)
-    private val fileNameTripPackageDetailOKResponse = "package_detail_ok_response.json"
+    private val fileNameTripPackageDetailOKResponse = "random_joke_detail_ok_response.json"
     private var server: MockWebServer? = null
-    private val MOCK_PACKAGE_ID = "01"
+    private val MOCK_JOKE_NAME = "animal"
 
 
     @Before
@@ -59,12 +60,12 @@ class CategoryDetailActivityTest {
         )
 
         val intent = Intent()
-        intent.putExtra(JokeShowingFragment.ARG_JOKE_CATEGORY, MOCK_PACKAGE_ID)
+        intent.putExtra(JokeShowingFragment.ARG_JOKE_CATEGORY, MOCK_JOKE_NAME)
         tripPackageDetailActivityTestRule.launchActivity(intent)
 
 
 
-        onView(allOf<View>(withId(R.id.detail_entity_detail_name), withText("5000,00"))).check(matches(isDisplayed()))
+        onView(allOf<View>(withId(R.id.joke_value_textview), withText(containsString("Chuck Norris can skeletize")))).check(matches(isDisplayed()))
 
     }
 

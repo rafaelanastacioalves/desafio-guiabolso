@@ -36,7 +36,7 @@ class CategoryListingActivityTest {
 
     @get:Rule
     var mainActivityActivityTestRule = ActivityTestRule(CategoryListingActivity::class.java, true, false)
-    private val fileNameTripPackagesOKResponse = "trip_packages_ok_response.json"
+    private val fileNameTripPackagesOKResponse = "single_joke_ok_response.json"
     private var server: MockWebServer? = null
 
     @Before
@@ -71,7 +71,7 @@ class CategoryListingActivityTest {
                         withHolderContainingId(R.id.joke_category_title_textview)
                 )
         )
-        onView(allOf<View>(withId(R.id.joke_category_title_textview), withText("Disney Premium"))).check(matches(isDisplayed()))
+        onView(allOf<View>(withId(R.id.joke_category_title_textview), withText("animal"))).check(matches(isDisplayed()))
 
     }
 

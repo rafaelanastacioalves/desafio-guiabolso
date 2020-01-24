@@ -16,7 +16,7 @@
 		tools:context=".jokeshowing.JokeShowingActivity">
 
 		<android.support.v7.widget.AppCompatImageView
-			android:id="@+id/trip_package_detail_imageview"
+			android:id="@+id/joke_image_imageview"
 			android:layout_width="0dp"
 			android:layout_height="0dp"
 			android:scaleType="centerCrop"
@@ -28,14 +28,14 @@
 			app:srcCompat="@drawable/ic_placeholder_map"/>
 
 		<TextView
-			android:id="@+id/detail_entity_detail_name"
+			android:id="@+id/joke_value_textview"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="@dimen/default_internal_margin"
 			android:layout_marginStart="@dimen/default_internal_margin"
 			android:layout_marginTop="@dimen/default_internal_margin"
 			app:layout_constraintStart_toStartOf="parent"
-			app:layout_constraintTop_toBottomOf="@+id/trip_package_detail_imageview"
+			app:layout_constraintTop_toBottomOf="@+id/joke_image_imageview"
 			tools:text="@string/valor_text"
 			/>
 

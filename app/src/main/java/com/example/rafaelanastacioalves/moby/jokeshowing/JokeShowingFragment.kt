@@ -26,10 +26,10 @@ class JokeShowingFragment : Fragment(), View.OnClickListener {
 
     lateinit private var mJokeShowingViewModel: JokeShowingViewModel
 
-    @BindView(R.id.detail_entity_detail_name)
+    @BindView(R.id.joke_value_textview)
     lateinit internal var tripPackageDetailValor: TextView
 
-    @BindView(R.id.trip_package_detail_imageview)
+    @BindView(R.id.joke_image_imageview)
     lateinit internal var tripPackageDetailImageview: ImageView
 
     lateinit var categoryName: String
