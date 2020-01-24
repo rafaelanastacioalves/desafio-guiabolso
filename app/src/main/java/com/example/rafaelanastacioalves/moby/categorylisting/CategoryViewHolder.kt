@@ -1,15 +1,13 @@
 package com.example.rafaelanastacioalves.moby.categorylisting;
 
-import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.TextView;
-
-import com.example.rafaelanastacioalves.moby.R;
-import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import android.content.Context
+import android.support.v7.widget.RecyclerView
+import android.view.View
+import android.widget.TextView
+import butterknife.BindView
+import butterknife.ButterKnife
+import com.example.rafaelanastacioalves.moby.R
+import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener
 
 class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 

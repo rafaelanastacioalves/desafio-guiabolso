@@ -1,10 +1,8 @@
 package com.example.rafaelanastacioalves.moby.retrofit;
 
-import com.example.rafaelanastacioalves.moby.domain.model.Joke;
+
+import com.example.rafaelanastacioalves.moby.domain.model.Joke
 import io.reactivex.Observable
-
-
-import retrofit2.Call;
 import retrofit2.http.GET
 import retrofit2.http.Query
 

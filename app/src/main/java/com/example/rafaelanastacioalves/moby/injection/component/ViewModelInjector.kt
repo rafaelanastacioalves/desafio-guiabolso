@@ -1,8 +1,8 @@
 package com.example.rafaelanastacioalves.moby.injection.component
 
+import com.example.rafaelanastacioalves.moby.categorylisting.CategoryListingViewModel
 import com.example.rafaelanastacioalves.moby.injection.module.NetworkModule
 import com.example.rafaelanastacioalves.moby.jokeshowing.JokeShowingViewModel
-import com.example.rafaelanastacioalves.moby.categorylisting.CategoryListingViewModel
 import dagger.Component
 import javax.inject.Singleton
 

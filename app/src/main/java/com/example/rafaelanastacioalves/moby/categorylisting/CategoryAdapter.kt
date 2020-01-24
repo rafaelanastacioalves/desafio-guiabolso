@@ -1,14 +1,11 @@
 package com.example.rafaelanastacioalves.moby.categorylisting;
 
-import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-
-import com.example.rafaelanastacioalves.moby.R;
-import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener;
-
-import kotlin.collections.ArrayList
+import android.content.Context
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import com.example.rafaelanastacioalves.moby.R
+import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener
 
 class CategoryAdapter(context: Context) : RecyclerView.Adapter<CategoryViewHolder>() {
     lateinit private var recyclerViewClickListener: RecyclerViewClickListener
