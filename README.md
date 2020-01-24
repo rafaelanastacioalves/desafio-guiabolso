@@ -4,9 +4,10 @@
 
 Desafio tecnico da empresa Guia Bolso.
 
-![tela de listagem](captures/)
+<img src="captures/Screenshot_1579908841.png" width="200">    
+<img src="captures/Screenshot_1579908845.png" width="200">    
 
-![tela de detalhes](captures/)
+
 
 ## Instruções para compilação
 
