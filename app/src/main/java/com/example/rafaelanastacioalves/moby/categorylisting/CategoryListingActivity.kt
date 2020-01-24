@@ -12,14 +12,13 @@ import com.example.rafaelanastacioalves.moby.R
 import com.example.rafaelanastacioalves.moby.jokeshowing.JokeShowingActivity
 import com.example.rafaelanastacioalves.moby.jokeshowing.JokeShowingFragment
 import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener
-import timber.log.Timber
 
 class CategoryListingActivity : AppCompatActivity(), RecyclerViewClickListener {
     private val mClickListener = this
     private var mTripPackageListAdapter: CategoryAdapter? = null
     private val tripPackageListLoaderId = 10
     private var mRecyclerView: RecyclerView? = null
-    lateinit private var mLiveDataMainEntityListViewModel: LiveDataMainEntityListViewModel
+    lateinit private var mCategoryListingViewModel: CategoryListingViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,8 +29,8 @@ class CategoryListingActivity : AppCompatActivity(), RecyclerViewClickListener {
     }
 
     private fun subscribe() {
-        mLiveDataMainEntityListViewModel = ViewModelProviders.of(this).get(LiveDataMainEntityListViewModel::class.java!!)
-        mLiveDataMainEntityListViewModel.mainEntityList.observe(this, Observer { mainEntities ->
+        mCategoryListingViewModel = ViewModelProviders.of(this).get(CategoryListingViewModel::class.java!!)
+        mCategoryListingViewModel.mainEntityList.observe(this, Observer { mainEntities ->
             populateRecyclerView(mainEntities)
         })
     }

@@ -2,7 +2,7 @@ package com.example.rafaelanastacioalves.moby.injection.component
 
 import com.example.rafaelanastacioalves.moby.injection.module.NetworkModule
 import com.example.rafaelanastacioalves.moby.jokeshowing.JokeShowingViewModel
-import com.example.rafaelanastacioalves.moby.categorylisting.LiveDataMainEntityListViewModel
+import com.example.rafaelanastacioalves.moby.categorylisting.CategoryListingViewModel
 import dagger.Component
 import javax.inject.Singleton
 
@@ -10,7 +10,7 @@ import javax.inject.Singleton
 @Component(modules = [(NetworkModule::class)])
 interface ViewModelInjector {
 
-    fun inject(mainEntityListViewModel: LiveDataMainEntityListViewModel)
+    fun inject(mainEntityListViewModel: CategoryListingViewModel)
     fun inject(entityDetailsViewModel: JokeShowingViewModel)
 
     @Component.Builder

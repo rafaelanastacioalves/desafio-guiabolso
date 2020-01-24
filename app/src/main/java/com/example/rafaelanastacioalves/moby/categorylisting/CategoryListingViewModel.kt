@@ -15,7 +15,7 @@ import retrofit2.Response;
 import timber.log.Timber;
 import javax.inject.Inject
 
-class LiveDataMainEntityListViewModel : BaseViewModel() {
+class CategoryListingViewModel : BaseViewModel() {
 
     @Inject
     lateinit var apiClient: APIClient
