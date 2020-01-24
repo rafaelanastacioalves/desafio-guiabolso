@@ -8,20 +8,22 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.example.rafaelanastacioalves.moby.R
 import com.example.rafaelanastacioalves.moby.listeners.RecyclerViewClickListener
-import kotlinx.android.synthetic.main.detail_entity_viewholder.view.joke_category_container
 
-class CategoryViewHolder(itemView: View) : LayoutContainer, RecyclerView.ViewHolder(itemView), View.OnClickListener{
+class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener {
 
-
+    @BindView(R.id.trip_package_container)
+    lateinit var tripPackageContainer: View
     lateinit private var aRecyclerViewListener: RecyclerViewClickListener
 
+    @BindView(R.id.joke_category_title_textview)
+    lateinit var tripPackageTitleTextView: TextView;
 
     constructor(itemView: View , clickListener: RecyclerViewClickListener) : this(itemView) {
         this.aRecyclerViewListener = clickListener
     }
     init {
         ButterKnife.bind(this, itemView)
-        joke.setOnClickListener(this)
+        tripPackageContainer.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -30,7 +32,7 @@ class CategoryViewHolder(itemView: View) : LayoutContainer, RecyclerView.ViewHol
 
     fun bind(aCategory: String, context: Context) {
 
-        joke_category_title_textview.setText(aCategory);
+        tripPackageTitleTextView.setText(aCategory);
 
 
 
