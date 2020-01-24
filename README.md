@@ -8,6 +8,10 @@ Desafio tecnico da empresa Guia Bolso.
 
 ![tela de detalhes](captures/)
 
+## Instruções para compilação
+
+No diretório da pasta, utilizar o comando `./gradlew assembleDebug`.
+
 ## Arquitetura
 
 Neste projeto, decidi por utilizar a arquitetura MVVM, por fazer uso da componente [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) do [Android Architecture Components](https://developer.android.com/topic/libraries/architecture).
