@@ -39,7 +39,9 @@ class JokeShowingFragment : Fragment(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         subscribe()
         loadData()
+        setupActionBarWithTitle(categoryName)
     }
+
 
     private fun loadData() {
         categoryName = arguments!!.getString(ARG_JOKE_CATEGORY)
@@ -78,7 +80,6 @@ class JokeShowingFragment : Fragment(), View.OnClickListener {
     private fun setViewsWith(joke: Joke) {
 
         tripPackageDetailValor!!.text = joke.value
-        setupActionBarWithTitle(categoryName)
         Picasso.get()
                 .load(joke.iconUrl)
                 .into(tripPackageDetailImageview, object : Callback {

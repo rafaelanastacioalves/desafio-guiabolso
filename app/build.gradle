@@ -64,6 +64,8 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitExt"
     implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitExt"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.okhttp3Ext"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.retrofitExt"
+
 
     implementation "com.android.support.constraint:constraint-layout:$rootProject.androidConstraintLayout"
     implementation "com.jakewharton:butterknife:$rootProject.jakewhartonStuff"

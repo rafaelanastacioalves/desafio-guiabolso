@@ -5,6 +5,9 @@ import com.example.rafaelanastacioalves.moby.base.BaseViewModel
 
 import com.example.rafaelanastacioalves.moby.domain.model.Joke
 import com.example.rafaelanastacioalves.moby.retrofit.APIClient
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
+import io.reactivex.schedulers.Schedulers
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -19,6 +22,7 @@ class JokeShowingViewModel : BaseViewModel() {
     @Inject
     lateinit var apiClient: APIClient
 
+    private lateinit var subscription: Disposable
 
     fun loadData(categoryName: String?) {
         if (categoryName == null) {
@@ -26,24 +30,10 @@ class JokeShowingViewModel : BaseViewModel() {
         }
         val call = apiClient.getRandomJokeForCategory(categoryName)
 
-
-        call.enqueue(object : Callback<Joke> {
-            override fun onResponse(call: Call<Joke>, response: Response<Joke>) {
-                if (response.isSuccessful) {
-                    Timber.i("response Successful")
-                    jokeDetails.postValue(response.body())
-
-                } else {
-                    Timber.e(response.message())
-                }
-            }
-
-            override fun onFailure(call: Call<Joke>, t: Throwable) {
-                //TODO add more error management
-                t.printStackTrace()
-            }
-
-        })
+        subscription = apiClient.getRandomJokeForCategory(categoryName)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({response -> jokeDetails.value = response})
     }
 }
 
