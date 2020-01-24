@@ -39,5 +39,7 @@ Os testes utilizam o buildtype ```instrumentation``` para execução, pois forç
 ## Pontos de melhoria
 
 - Tratamentos de erro de consulta (erros http 400, 500 ou erros de conectividade )
-- Desacoplamento de regras de negócio em "Interactos"
-- Encapsulamento dos dados vindos do repositório até chegar às Views (comumente chamados de "Resources"").
+- Desacoplamento de regras de negócio em classes comumente chamadas de "`Interactors`" ou "`UseCases`"
+- Encapsulamento dos dados vindos do repositório até chegar às Views (comumente chamados de "`Resources`").
+- Atribuição do conhecimento de quais componentes utilizar para obter os dados em classes "`Repository`".
+- Atribuição de decidir de onde obter os dados (http ou local) bem como encaspular os mesmos por meio de "`NetworkBoundResource`".
