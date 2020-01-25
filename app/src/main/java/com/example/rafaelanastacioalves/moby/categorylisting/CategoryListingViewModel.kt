@@ -28,12 +28,9 @@ class CategoryListingViewModel : BaseViewModel() {
     }
 
     fun loadData() {
-        Timber.i("LiveDataMainEntityListViewModel loadData");
-
         if(mainEntityList.getValue() != null){
             return;
         }
-
         subscription = apiClient.getCategoriesList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

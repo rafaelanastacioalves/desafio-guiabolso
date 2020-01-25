@@ -20,7 +20,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_joke_detail_view.*
 
 
-class JokeShowingFragment : Fragment(), View.OnClickListener {
+class JokeShowingFragment : Fragment() {
 
     lateinit private var jokeShowingViewModel: JokeShowingViewModel
 
@@ -34,7 +34,6 @@ class JokeShowingFragment : Fragment(), View.OnClickListener {
         setupActionBarWithTitle(categoryName)
     }
 
-
     private fun loadData() {
         categoryName = arguments!!.getString(ARG_JOKE_CATEGORY)
         jokeShowingViewModel.loadData(categoryName)
@@ -46,19 +45,16 @@ class JokeShowingFragment : Fragment(), View.OnClickListener {
 
     }
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflateViews(inflater, container)
     }
-
 
     private fun inflateViews(inflater: LayoutInflater, container: ViewGroup?): View {
         val rootView = inflater.inflate(R.layout.fragment_joke_detail_view, container, false)
         ButterKnife.bind(this, rootView)
         return rootView
     }
-
 
     private fun setupActionBarWithTitle(title: String) {
         val mActivity = activity as AppCompatActivity?
@@ -95,14 +91,9 @@ class JokeShowingFragment : Fragment(), View.OnClickListener {
         startActivity(intent)
     }
 
-
     override fun onDestroy() {
         super.onDestroy()
 
-    }
-
-    override fun onClick(v: View) {
-        Toast.makeText(activity, "Comprado!", Toast.LENGTH_SHORT).show()
     }
 
     companion object {
@@ -110,5 +101,4 @@ class JokeShowingFragment : Fragment(), View.OnClickListener {
         var ARG_JOKE_CATEGORY: String? = null
     }
 
-
-}// Required empty public constructor
+}

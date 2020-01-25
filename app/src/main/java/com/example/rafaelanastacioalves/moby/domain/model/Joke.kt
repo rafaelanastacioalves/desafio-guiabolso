@@ -4,7 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 
 class Joke {
-
     lateinit var value: String
     @SerializedName("icon_url")
     lateinit var iconUrl: String
